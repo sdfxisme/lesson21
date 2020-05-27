@@ -1,0 +1,15 @@
+{% extends "posting/base.html" %}
+
+{% block content %}
+<ul>
+{% for tag in tags %}
+<li>
+    <a href = "{% url 'posting:tag_one' pk=tag.pk %}">{{tag.tag_name}}</a>
+</li>
+
+{% endfor %}
+</ul>
+<br>
+<a href = "{% url 'posting:tag_create' %}">Создать тэг</a>
+
+{% endblock %}

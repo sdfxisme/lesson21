@@ -1,0 +1,9 @@
+{% extends "posting/base.html" %}
+
+{% block content %}
+<ul>
+        <li>{{tag.tag_name}}</li>
+<li><a href = "{% url 'posting:tag_update' pk=tag.pk %}">Изменить</a></li>
+<li><a href = "{% url 'posting:tag_delete' pk=tag.pk %}">Удалить</a></li>
+</ul>
+{% endblock %}

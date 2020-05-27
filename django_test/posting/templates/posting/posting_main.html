@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All posts</title>
+</head>
+<body>
+<ul>
+    {% for post in post_all.all %}
+    <li><a href ="{{post.id}}">{{post.my_post_name}}</a>, текст:{{post.my_post_text}} ,опубликовано {{post.my_post_date}}</li>
+    <li><a href ="{% url 'posting:post' id=post.id %}">{{post.my_post_name}}</a>, текст:{{post.my_post_text}} ,опубликовано {{post.my_post_date}}</li>
+    {% endfor %}
+
+</ul>
+</body>
+</html>

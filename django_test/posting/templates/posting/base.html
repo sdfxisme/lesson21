@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Blog</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static "posting/style.css" %}">
+</head>
+<body>
+<a href="{% url 'home' %}">Home</a>
+<br>
+<a href="{% url 'posting:index' %}">Posts</a>
+<br>
+<a href="{% url 'posting:post_add' %}">Add post</a>
+<br>
+<a href="{% url 'posting:tag_list' %}">Tags</a>
+<br>
+{% if user.is_authenticated %}
+Рады приветствовать, {{user.username}}!
+<a href="{% url 'users:logout' %}">Exit</a>
+<br>
+{% else %}
+<br>
+<a href="{% url 'users:login' %}">Authorization</a>
+<br>
+<a href="{% url 'users:register' %}">Registration</a>
+{% endif %}
+{% block content %} {% endblock %}
+
+
+</body>
+</html>

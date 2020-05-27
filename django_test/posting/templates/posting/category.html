@@ -1,0 +1,14 @@
+{% extends "posting/base.html" %}
+
+{% block content %}
+
+<h3> all posts</h3>
+
+{% for post in post_all.all %}
+
+<h4><a href="{% url 'posting:post' id=post.id %}"><img src="{{post.my_post_image.url}}">{{post.my_post_name}}{{post.my_post_date}}</a></h4>
+
+
+{% endfor %}
+
+{% endblock %}
