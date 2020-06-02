@@ -1,14 +1,32 @@
 {% extends "posting/base.html" %}
-
+{% load my_temp %}
 {% block content %}
 
 <h3> all posts</h3>
-
-{% for post in post_all.all %}
+<p>{{info|upper}}</p>
+<p>{{info|my_upper}}<p>
+{%with all_tags=post_.get_all_tags%}
+{% for post in posts %}
 
 <h4><a href="{% url 'posting:post' id=post.id %}"><img src="{{post.my_post_image.url}}">{{post.my_post_name}}{{post.my_post_date}}</a></h4>
-
+<p>Всего тегов: {{all_tags|my_length}}</p>
 
 {% endfor %}
 
+    <div class="pagination">
+        <span class="step-links">
+            {% if posts.has_previous %}
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+            </span>
+
+            {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">next</a>
+            {% endif %}
+            </span>
+    </div>
+{% endwith %}
 {% endblock %}

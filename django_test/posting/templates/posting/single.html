@@ -1,9 +1,11 @@
 {% extends "posting/base.html" %}
 
 {% block content %}
+<h4><img src="{{post.my_post_image.url}}"></h4>
 <h3>{{post.id}}</h3>
 <h3>{{post.my_post_name}}</h3>
 <h3>{{post.my_post_date}}</h3>
 <h3>{{post.my_post_text}}</h3>
+<h3>Рейтинг: {{post.my_post_rating}}</h3>
 <h3>Tags:{{post.tag_number}}</h3>
 {% endblock %}
